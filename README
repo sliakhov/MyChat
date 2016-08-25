@@ -1,0 +1,8 @@
+This is the main project used to build chat application (libraries).
+The following environment required:
+1. JDK7 or later 
+2. Maven
+
+To build all libraries, this command can be run:
+	mvn clean package
+
