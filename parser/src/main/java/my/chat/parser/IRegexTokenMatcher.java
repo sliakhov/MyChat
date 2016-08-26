@@ -1,7 +1,8 @@
 package my.chat.parser;
 
 /**
- * Matches a lexical element with regular expression from an arbitrary text.
+ * Provide a regex pattern to allow matching a lexical element with regular
+ * expression from an arbitrary text.
  * 
  * @param <T>
  *            The type of entity represented by lexical element

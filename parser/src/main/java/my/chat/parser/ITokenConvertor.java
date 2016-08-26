@@ -1,7 +1,7 @@
 package my.chat.parser;
 
 /**
- * Matches a lexical element from an arbitrary text.
+ * Convert a lexical element into an appropriate object value.
  * 
  * @param <T>
  *            The type of entity represented by lexical element
