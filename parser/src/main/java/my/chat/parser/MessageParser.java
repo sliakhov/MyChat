@@ -1,9 +1,9 @@
 package my.chat.parser;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -45,7 +45,7 @@ public class MessageParser extends RawParser implements IMessageParser {
 		message.setMentions(toStringArray(tokenMap.get(MentionMatcher.KEY)));
 		message.setEmoticons(toStringArray(tokenMap.get(EmoticonMatcher.KEY)));
 		message.setLinks(toLinksArray(tokenMap.get(LinkMatcher.KEY)));
-		LOG.debug("Parsed message: {}", message);
+		LOG.debug("Parsed message: {}", Objects.toString(message));
 		return message;
 	}
 
@@ -90,7 +90,7 @@ public class MessageParser extends RawParser implements IMessageParser {
 	 * @return Entities sorted and aggregated by its type
 	 */
 	private HashMap<String, ArrayList<Object>> toEntities(List<RawToken<?>> tokens) {
-		Collections.sort(tokens);
+//		Collections.sort(tokens);
 		HashMap<String, ArrayList<Object>> map = new HashMap<String, ArrayList<Object>>();
 		String previousType = "";
 		ArrayList<Object> list = null;

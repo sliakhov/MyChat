@@ -5,7 +5,6 @@ import org.junit.Test;
 import static junit.framework.Assert.*;
 import my.chat.api.entity.Link;
 import my.chat.api.entity.Message;
-import my.chat.parser.matcher.LinkMatcher;
 
 public class ParserBuilderTest {
 
@@ -57,7 +56,7 @@ public class ParserBuilderTest {
 		assertEquals(1, message.getLinks().length);
 		Link link = message.getLinks()[0];
 		assertEquals("http://google.com", link.getUrl());
-		assertEquals(LinkMatcher.UNKOWN_TITLE, link.getTitle());
+		assertEquals("Google", link.getTitle());
 	}
 
 	/**

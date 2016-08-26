@@ -1,7 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<properties>
-		<APP_VERSION>1.0-SNAPSHOT</APP_VERSION>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<log4j.version>2.6.2</log4j.version>
 	</properties>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>my.chat</groupId>
@@ -26,38 +27,32 @@
 				<updatePolicy>always</updatePolicy>
 			</snapshots>
 		</repository>
-		<repository>
-			<id>oss.sonatype.org</id>
-			<name>OSS Sonatype Staging</name>
-			<url>https://oss.sonatype.org/content/groups/staging</url>
-		</repository>
 	</repositories>
 	<dependencies>
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>eclipselink</artifactId>
-			<version>2.5.0-RC1</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.eclipse.persistence</groupId>
-					<artifactId>commonj.sdo</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.5-SNAPSHOT</version>
 		</dependency>
 		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.21</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
-			<version>2.6.2</version>
+			<version>${log4j.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-			<version>2.6.2</version>
+			<version>${log4j.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -73,7 +68,6 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<configuration>
-						<!-- or whatever version you use -->
 						<source>1.7</source>
 						<target>1.7</target>
 					</configuration>

@@ -10,7 +10,7 @@ public class ParserFactory {
 	private static ParserFactory singleton;
 	private IMessageParser parser;
 
-	public ParserFactory() {
+	private ParserFactory() {
 		initParser();
 	}
 

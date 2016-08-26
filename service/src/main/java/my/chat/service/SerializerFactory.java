@@ -10,6 +10,9 @@ public class SerializerFactory {
 	private static SerializerFactory singleton;
 	private IMessageSerializer serializer = new JsonSerializer();
 
+	private SerializerFactory() {
+	}
+
 	/**
 	 * Return factory singleton instance.
 	 * 

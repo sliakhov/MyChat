@@ -2,9 +2,15 @@ package my.chat.api.entity;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * Represents link element of chat message. E.g. a link to HTTP resource.
  */
+@XmlType (propOrder={"url","title"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Link implements Serializable {
 	private static final long serialVersionUID = -1397302922157451827L;
 	private String url;
@@ -47,6 +53,11 @@ public class Link implements Serializable {
 	 */
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	@Override
+	public String toString() {
+		return "Link [url=" + url + ", title=" + title + "]";
 	}
 
 }

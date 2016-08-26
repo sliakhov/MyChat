@@ -21,9 +21,11 @@ public class PageTitleResolverTest {
 	@Test
 	public void testGetTitle() {
 		PageTitleResolver resolver = PageTitleResolver.getInstance();
-		assertEquals(LinkMatcher.UNKOWN_TITLE, resolver.getTitle("http://cnn.com"));
-		assertEquals(LinkMatcher.UNKOWN_TITLE, resolver.getTitle("https://google.com"));
+		assertNotSame(LinkMatcher.UNKOWN_TITLE, resolver.getTitle("http://cnn.com"));
+		assertEquals("Google", resolver.getTitle("https://google.com"));
 		assertEquals(LinkMatcher.UNKOWN_TITLE, resolver.getTitle("ftp://localhost"));
+		assertEquals(LinkMatcher.UNKOWN_TITLE, resolver.getTitle("------------------"));
+		assertEquals(LinkMatcher.UNKOWN_TITLE, resolver.getTitle(null));
 	}
 
 }

@@ -26,7 +26,7 @@ public class JsonSerializerTest {
 		message.setLinks(new Link[] { link });
 		String res = js.serialize(message);
 		assertNotNull(res);
-		String expected = "{\"mentions\":[\"mention1\",\"mention2\"],\"emoticons\":[\"emoticon1\",\"emoticon2\"],\"links\":[{\"title\":\"Google\",\"url\":\"http://google.com\"}]}";
+		String expected = "{\"mentions\":[\"mention1\",\"mention2\"],\"emoticons\":[\"emoticon1\",\"emoticon2\"],\"links\":[{\"url\":\"http://google.com\",\"title\":\"Google\"}]}";
 		assertEquals(expected, res.replaceAll("\\s", ""));
 	}
 }

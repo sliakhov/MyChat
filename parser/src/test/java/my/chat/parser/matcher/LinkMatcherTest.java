@@ -33,7 +33,7 @@ public class LinkMatcherTest {
 		link = lm.toEntity("http://google.com");
 		assertNotNull(link);
 		assertEquals("http://google.com", link.getUrl());
-		assertEquals(LinkMatcher.UNKOWN_TITLE, link.getTitle());
+		assertEquals("Google", link.getTitle());
 
 	}
 

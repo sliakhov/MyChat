@@ -1,16 +1,19 @@
 package my.chat.api.entity;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * Represents a special lexical elements of user's message text input
  */
 @XmlRootElement(name = "Document")
+@XmlType(propOrder = { "mentions", "emoticons", "links" })
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Message implements Serializable {
 	private static final long serialVersionUID = -7866664428000571845L;
@@ -74,4 +77,11 @@ public class Message implements Serializable {
 	public void setLinks(Link[] links) {
 		this.links = links;
 	}
+
+	@Override
+	public String toString() {
+		return "Message [mentions=" + Arrays.toString(mentions) + ", emoticons=" + Arrays.toString(emoticons)
+				+ ", links=" + Arrays.toString(links) + "]";
+	}
+
 }

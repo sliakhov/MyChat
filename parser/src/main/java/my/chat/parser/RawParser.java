@@ -45,7 +45,7 @@ public class RawParser {
 			ArrayList<String> patterns = new ArrayList<String>();
 			for (IRegexTokenMatcher<?> matcher : regexMatchers) {
 				String regex = matcher.getRegexPattern();
-				LOG.debug("Add matcher, type={}{}{}",matcher.getType(), ", pattern=" ,regex);
+				LOG.debug("Add matcher, type={}, pattern={}",matcher.getType(), regex);
 				Pattern.compile(regex);
 				patterns.add(regex);
 			}
@@ -97,7 +97,7 @@ public class RawParser {
 						String matched = matcher.group(i + 1);
 						if (matched != null) {
 							IRegexTokenMatcher<?> convertor = regexMatchers.get(i);
-							LOG.debug("Matcher type={}{}{}", convertor.getType(), ", token value=", matched);
+							LOG.debug("Matched token: type={}, value={}", convertor.getType(),  matched);
 							raw.add(new RawToken<>(matched, convertor));
 							break;
 						}

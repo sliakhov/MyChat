@@ -13,8 +13,28 @@ import my.chat.api.exception.ChatException;
  */
 public class ChatService implements IChatService {
 	private static final Logger LOG = LogManager.getLogger(ChatService.class);
-	IMessageSerializer serializer = SerializerFactory.getInstance().getSerializer();
-	IMessageParser parser = ParserFactory.getInstance().getParser();
+	private static ChatService singleton;
+	private IMessageSerializer serializer = SerializerFactory.getInstance().getSerializer();
+	private IMessageParser parser = ParserFactory.getInstance().getParser();
+
+	private ChatService() {
+	}
+
+	/**
+	 * Return service singleton instance.
+	 * 
+	 * @return
+	 */
+	public static ChatService getInstance() {
+		if (singleton == null) {
+			synchronized (ChatService.class) {
+				if (singleton == null) {
+					singleton = new ChatService();
+				}
+			}
+		}
+		return singleton;
+	}
 
 	/*
 	 * (non-Javadoc)

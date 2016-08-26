@@ -73,8 +73,8 @@ public class ParserBuilder {
 			matchers.add(new LinkMatcher());
 		}
 		ITokenConvertor<String> defaultMatcher = (enableText) ? new DefaultMatcher() : null;
-		LOG.info("Building message parser. enableMention={}{}{}{}{}", enableMention, ", enableEmoticon=", enableEmoticon,
-				", enableLink=", enableLink);
+		LOG.info("Building message parser. enableMention={}, enableEmoticon={}, enableLink={}", enableMention,
+				enableEmoticon, enableLink);
 		return new MessageParser(matchers, defaultMatcher);
 	}
 }
